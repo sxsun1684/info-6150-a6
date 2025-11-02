@@ -104,81 +104,6 @@ header a {
   padding-bottom: 60px;
 }
 
-/* ========= Card ========= */
-.card.horizontal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  background: linear-gradient(145deg, #ffffff, #f6f7fb);
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-  padding: 25px;
-  max-width: 560px;
-  margin: auto;
-  transition: transform 0.3s ease;
-}
-
-.card.horizontal:hover {
-  transform: translateY(-6px);
-}
-
-.card.horizontal .img-box {
-  flex-shrink: 0;
-  background: #f4f5fd;
-  border-radius: 14px;
-  padding: 10px;
-}
-
-.card.horizontal img {
-  width: 130px;
-  height: 130px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.card.horizontal img:hover {
-  transform: scale(1.05);
-}
-
-.card.horizontal .info {
-  flex: 1;
-  text-align: left;
-}
-
-.card.horizontal h2 {
-  color: #3a3a85;
-  font-size: 1.6rem;
-  margin: 0 0 8px;
-}
-
-.card.horizontal .type {
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.card.horizontal h3 {
-  color: #5b6cff;
-  border-bottom: 1.5px solid rgba(91,108,255,0.2);
-  display: inline-block;
-  margin-bottom: 8px;
-}
-
-.card.horizontal ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.card.horizontal ul li {
-  background: rgba(240, 242, 255, 0.7);
-  margin: 4px 0;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #2f2f2f;
-}
-
 footer {
   padding: 20px;
   text-align: center;
@@ -193,51 +118,146 @@ footer a {
 }
 
 
-@media (max-width: 768px) {
+/* ========= Card (Fluid Responsive) ========= */
+.card.horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2rem);
+  background: linear-gradient(145deg, #ffffff, #f6f7fb);
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  padding: clamp(1rem, 2vw, 2rem);
+  width: min(90%, 800px);
+  margin: 2rem auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.horizontal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ====== 图片区域 ====== */
+.card.horizontal .img-box {
+  flex-shrink: 0;
+  background: #f4f5fd;
+  border-radius: 1rem;
+  padding: clamp(0.6rem, 1.2vw, 1.2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card.horizontal img {
+  width: clamp(90px, 15vw, 150px);
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.card.horizontal img:hover {
+  transform: scale(1.06);
+}
+
+/* ====== 信息区域 ====== */
+.card.horizontal .info {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card.horizontal h2 {
+  color: #3a3a85;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  margin: 0 0 0.4rem;
+}
+
+.card.horizontal .type {
+  color: #555;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  margin-bottom: 0.5rem;
+}
+
+.card.horizontal h3 {
+  color: #5b6cff;
+  border-bottom: 1.5px solid rgba(91,108,255,0.2);
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 600;
+}
+
+/* ====== 属性列表 ====== */
+.card.horizontal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem 1rem;
+}
+
+.card.horizontal ul li {
+  background: rgba(240, 242, 255, 0.8);
+  padding: clamp(0.5rem, 1vw, 0.8rem);
+  border-radius: 10px;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  color: #2f2f2f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.card.horizontal ul li:hover {
+  background: rgba(220, 225, 255, 0.95);
+}
+
+.card.horizontal ul li span:last-child {
+  color: #5b6cff;
+  font-weight: 600;
+}
+
+/* ====== 响应式断点 ====== */
+@media (max-width: 900px) {
   .card.horizontal {
     flex-direction: column;
     text-align: center;
-    padding: 20px;
   }
 
-  .card .img-box {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .card .info {
+  .card.horizontal .info {
     align-items: center;
   }
 
-  .card .info ul {
+  .card.horizontal ul {
+    grid-template-columns: 1fr;
     width: 100%;
   }
 
-  .card .info ul li {
+  .card.horizontal ul li {
     justify-content: space-between;
-    text-align: left;
   }
 }
 
-@media (max-width: 480px) {
-  .card .info h2 {
-    font-size: 1.5rem;
+@media (max-width: 600px) {
+  .card.horizontal {
+    border-radius: 1rem;
+    padding: 1.2rem;
   }
 
-  .card .img-box img {
-    width: 110px;
-    height: 110px;
+  .card.horizontal img {
+    width: clamp(80px, 25vw, 120px);
   }
 
-  .card .info ul li {
+  .card.horizontal ul li {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .card .info ul li span:last-child {
+  .card.horizontal ul li span:last-child {
     align-self: flex-end;
-    color: #5b6cff;
-    font-weight: 600;
-    margin-top: 3px;
   }
 }
