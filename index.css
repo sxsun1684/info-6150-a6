@@ -193,28 +193,51 @@ footer a {
 }
 
 
-@media (max-width: 600px) {
-  .card ul {
-    gap: 10px;
+@media (max-width: 768px) {
+  .card.horizontal {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
   }
 
-  .card ul li {
+  .card .img-box {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .card .info {
+    align-items: center;
+  }
+
+  .card .info ul {
+    width: 100%;
+  }
+
+  .card .info ul li {
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .card .info h2 {
+    font-size: 1.5rem;
+  }
+
+  .card .img-box img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .card .info ul li {
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
-    padding: 12px 14px;
   }
 
-  .stat-name {
-    margin-bottom: 6px;
-    font-size: 0.95rem;
-    color: #3a3a85;
-  }
-
-  .stat-value {
+  .card .info ul li span:last-child {
     align-self: flex-end;
-    background: rgba(91, 108, 255, 0.1);
-    font-size: 1rem;
-    color: #4343a1;
+    color: #5b6cff;
+    font-weight: 600;
+    margin-top: 3px;
   }
 }
