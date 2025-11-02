@@ -191,3 +191,30 @@ footer a {
   text-decoration: none;
   font-weight: 500;
 }
+
+
+@media (max-width: 600px) {
+  .card ul {
+    gap: 10px;
+  }
+
+  .card ul li {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 12px 14px;
+  }
+
+  .stat-name {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: #3a3a85;
+  }
+
+  .stat-value {
+    align-self: flex-end;
+    background: rgba(91, 108, 255, 0.1);
+    font-size: 1rem;
+    color: #4343a1;
+  }
+}
